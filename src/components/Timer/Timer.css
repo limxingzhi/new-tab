@@ -1,0 +1,14 @@
+#timer-time {
+	font-weight: bold;
+}
+
+#timer-date {
+	font-weight: medium;
+}
+
+.countdown-wrapper {
+	font-family: RobotoMono, monospace;
+	font-weight: regular;
+	margin: 2em auto;
+	text-align: center;
+}
