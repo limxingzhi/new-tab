@@ -22,25 +22,31 @@ export default class Timer extends React.Component {
 	}
 
 	componentDidMount() {
+		this.setState({
+			time: this.convertTime(Date.now()),
+			timestamp: Date.now(),
+			date: this.convertDate(Date.now())
+		});
+
 		// Update time
 		setInterval(() => {
 			this.setState({
-				time: this.convertTime(Date.now()),
-			})
+				time: this.convertTime(Date.now())
+			});
 		}, 125);
 
 		// Update timestamp
 		setInterval(() => {
 			this.setState({
 				timestamp: Date.now()
-			})
+			});
 		}, 23);
 
 		// Update date once every second
 		setInterval(() => {
 			this.setState({
 				date: this.convertDate(Date.now())
-			})
+			});
 		}, 1000);
 	}
 
@@ -49,7 +55,7 @@ export default class Timer extends React.Component {
 		const seconds = now.getSeconds();
 		const minutes = now.getMinutes();
 		const hours = now.getHours();
-		return  (hours > 9 ? hours : '0' + hours) + ' : ' +  (minutes > 9 ? minutes : '0' + minutes) + ' : ' + (seconds > 9 ? seconds : '0' + seconds);
+		return (hours > 9 ? hours : '0' + hours) + ' : ' + (minutes > 9 ? minutes : '0' + minutes) + ' : ' + (seconds > 9 ? seconds : '0' + seconds);
 	}
 
 	convertDate(timestamp) {
