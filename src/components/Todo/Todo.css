@@ -1,0 +1,44 @@
+.todo-wrapper {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+	justify-content: center;
+}
+
+.todoinput-wrapper {
+	display: flex;
+	justify-content: center;
+}
+
+.todoinput-form-wrapper {
+	margin: 1em;
+	width: fit-content;
+}
+
+.todoitem-toast-wrapper {
+	margin: 1em;
+	width: fit-content;
+}
+
+.todoitem-text {
+	font-size: large;
+}
+
+.todoitem-date {
+	font-style: italic;
+	opacity: 0.5;
+}
+
+.todoitem-id {
+	display: inline-block;
+	opacity: 0.5;
+	font-family: RobotoMono, monospace;
+	max-width: 20ch;
+
+	padding-top: 1em;
+
+	text-overflow: clip;
+  white-space: nowrap;
+  overflow: hidden;
+}

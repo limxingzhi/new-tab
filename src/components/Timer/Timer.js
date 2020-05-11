@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Timer.css';
 
 export default class Timer extends React.Component {
@@ -7,9 +7,11 @@ export default class Timer extends React.Component {
 
 		this.state = {
 			months: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
+			weekDays: ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'],
 			time: null,
 			date: null,
-			timestamp: null
+			weekdayPretty: null,
+			timestamp: null,
 		}
 	}
 
@@ -18,14 +20,17 @@ export default class Timer extends React.Component {
 			<h1 id="timer-time">{this.state.time}</h1>
 			<h5>{this.state.timestamp}</h5>
 			<h2 id="timer-date">{this.state.date}</h2>
+			<h5>{this.state.weekdayPretty}</h5>
 		</div>;
 	}
 
 	componentDidMount() {
+		const now = Date.now();
 		this.setState({
-			time: this.convertTime(Date.now()),
-			timestamp: Date.now(),
-			date: this.convertDate(Date.now())
+			time: this.convertTime(now),
+			timestamp: now,
+			date: this.convertDate(now),
+			weekdayPretty: this.convertDay(now)
 		});
 
 		// Update time
@@ -44,10 +49,12 @@ export default class Timer extends React.Component {
 
 		// Update date once every second
 		setInterval(() => {
+			const now = Date.now();
 			this.setState({
-				date: this.convertDate(Date.now())
+				date: this.convertDate(now),
+				weekdayPretty: this.convertDay(now)
 			});
-		}, 1000);
+		}, 1500);
 	}
 
 	convertTime(timestamp) {
@@ -61,5 +68,9 @@ export default class Timer extends React.Component {
 	convertDate(timestamp) {
 		const now = new Date(timestamp);
 		return now.getDate() + ' ' + this.state.months[now.getMonth()] + ' ' + now.getFullYear();
+	}
+
+	convertDay(timestamp) {
+		return this.state.weekDays[(new Date(timestamp)).getDay()];
 	}
 }

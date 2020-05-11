@@ -1,0 +1,67 @@
+.rssfeed-text {
+	font-size: 100%;
+	font-weight: light;
+	text-align: center;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 100%;
+	min-width: 1px;
+
+	color: lightseagreen;
+	animation: rssfeed-blinkingText 10s infinite;
+}
+
+.rssfeed-loading {
+	width: 100%;
+	text-align: center;
+	animation: rssfeed-blinkingLoad 1s infinite;
+}
+
+.rssfeed-title {
+	font-weight: bold;
+	padding: 0 20px;
+}
+
+@media (max-width: 600px) {
+	.rssfeed-metadata {
+		display: none;
+	}
+
+	.rssfeed-title {
+		font-weight: normal;
+		padding: 0;
+	}
+
+	.rssfeed-text {
+		overflow: scroll;
+		text-overflow: unset;
+	}
+}
+
+@keyframes rssfeed-blinkingText {
+	0% {
+		opacity: 0;
+	}
+	5%{
+		opacity: 1;
+	}
+	95% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes rssfeed-blinkingLoad {
+	0% {
+		opacity: 0;
+	}
+	50%{
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}

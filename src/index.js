@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Header from './components/Header/Header'
+import Header from './components/Header/Header';
+import RssFeed from './components/RssFeed/RssFeed';
 import App from './components/App/App';
 import Utils from './components/Utils'
 
@@ -13,6 +14,7 @@ import StorageConstants from './components/StorageConstants';
 ReactDOM.render(
 	<div>
 		<Header />
+		<RssFeed />
 		<main class="container index-wrapper">
 			<App />
 		</main>

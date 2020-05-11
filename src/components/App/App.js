@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
 import Timer from '../Timer/Timer';
+import Todo from '../Todo/Todo';
 import './App.css';
 
 export default class App extends React.Component {
@@ -9,6 +9,10 @@ export default class App extends React.Component {
 	}
 
 	render() {
-		return <div class="app-wrapper"><Timer /></div>;
+		return <div class="app-wrapper"><Timer /><Todo /></div>;
+	}
+
+	componentDidMount() {
+		document.title = 'NEW TAB';
 	}
 }
