@@ -1,0 +1,9 @@
+.todoinput-wrapper {
+	display: flex;
+	justify-content: center;
+}
+
+.todoinput-form-wrapper {
+	margin: 1em;
+	width: fit-content;
+}

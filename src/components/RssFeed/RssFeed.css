@@ -16,6 +16,8 @@
 	width: 100%;
 	text-align: center;
 	animation: rssfeed-blinkingLoad 1s infinite;
+	padding: 0 20px;
+	margin: 0 auto;
 }
 
 .rssfeed-title {
