@@ -1,20 +1,24 @@
 .todoitem-toast-wrapper {
 	margin: 10px;
 	width: fit-content;
+
+	opacity: 0.75;
 }
 
 .todoitem-text {
 	font-size: large;
 }
 
+.todoitem-body-wrapper {
+	opacity: 0.95;
+}
+
 .todoitem-date {
 	font-style: italic;
-	opacity: 0.5;
 }
 
 .todoitem-id {
 	display: inline-block;
-	opacity: 0.5;
 	font-family: RobotoMono, monospace;
 	max-width: 20ch;
 

@@ -16,12 +16,14 @@ export default class TodoItem extends React.Component {
 				<Toast.Header>
 					<p class="mr-auto todoitem-id" >{this.state.hashValue}</p>
 				</Toast.Header>
-				<Toast.Body>
-					<p class="todoitem-text">{this.state.text}</p>
-					<small>
-						{this.state.emoji}<span class="todoitem-date">{this.state.timeRecord}</span>
-					</small>
-				</Toast.Body>
+				<div class="todoitem-body-wrapper">
+					<Toast.Body>
+						<p class="todoitem-text">{this.state.text}</p>
+						<small>
+							{this.state.emoji}<span class="todoitem-date">{this.state.timeRecord}</span>
+						</small>
+					</Toast.Body>
+				</div>
 			</Toast>
 		</div>;
 	}
