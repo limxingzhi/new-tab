@@ -26,11 +26,7 @@ export default class App extends React.Component {
 
 	componentDidMount() {
 		document.title = 'NEW TAB';
-		try {
-			this.fetchBackground(this.updateBackground);
-		} catch (exception) {
-			this.fetchBackground(this.updateBackground);
-		}
+		this.fetchBackground(this.updateBackground);
 	}
 
 	componentDidUpdate() {

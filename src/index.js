@@ -13,10 +13,10 @@ import './fonts/RobotoMono-Regular.ttf';
 import ValueConstants from './components/ValueConstants';
 
 ReactDOM.render(
-	<div>
+	<div class="index-wrapper">
 		<Header />
 		<RssFeed />
-		<main class="index-wrapper">
+		<main class="container">
 			<App />
 		</main>
 	</div>,
