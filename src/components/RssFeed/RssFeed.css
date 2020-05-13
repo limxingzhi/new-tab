@@ -52,7 +52,6 @@
 
 @keyframes rssfeed-blinkingText {
 	0% {
-		font-weight: lighter;
 		opacity: 0;
 	}
 	5% {
@@ -68,12 +67,15 @@
 
 @keyframes rssfeed-blinkingLoad {
 	0% {
+		font-weight: light;
 		opacity: 0;
 	}
 	50% {
+		font-weight: bold;
 		opacity: 1;
 	}
 	100% {
+		font-weight: light;
 		opacity: 0;
 	}
 }

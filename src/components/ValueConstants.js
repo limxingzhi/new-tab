@@ -14,7 +14,7 @@ export default class ValueConstants {
 	}
 
 	static corsProxy () {
-		return 'https://thingproxy.freeboard.io/fetch/';
+		return 'https://cors-anywhere.herokuapp.com/';
 	}
 
 	static redditRssImageCaptureRegex() {

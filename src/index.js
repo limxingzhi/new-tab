@@ -16,7 +16,7 @@ ReactDOM.render(
 	<div>
 		<Header />
 		<RssFeed />
-		<main class="container index-wrapper">
+		<main class="index-wrapper">
 			<App />
 		</main>
 	</div>,

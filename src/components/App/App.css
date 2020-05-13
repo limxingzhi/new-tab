@@ -2,3 +2,20 @@
 	width: auto;
 	margin: 5em auto auto;
 }
+
+.app-imagecredits {
+	display: block;
+	width: 100%;;
+	text-align: center;
+	color: white;
+
+	font-style: italic;
+
+	opacity: 0.2;
+}
+
+.app-imagecredits:hover {
+	color: white;
+
+	opacity: 1;
+}

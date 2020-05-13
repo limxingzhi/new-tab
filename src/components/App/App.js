@@ -4,7 +4,6 @@ import Todo from '../Todo/Todo';
 import Parser from 'rss-parser';
 import ValueConstants from '../ValueConstants';
 import Utils from '../Utils';
-import { Footer } from 'react-bootstrap';
 import './App.css';
 
 export default class App extends React.Component {
@@ -12,10 +11,14 @@ export default class App extends React.Component {
 		super(props);
 
 		this.parser = new Parser();
+		this.state = Utils.deepCopy(props);
+
+		this.state.imageCredits = '';
 	}
 
 	render() {
 		return <div class="app-wrapper">
+			<div>{this.state.imageCredits}</div>
 			<Timer />
 			<Todo />
 		</div>;
@@ -38,7 +41,6 @@ export default class App extends React.Component {
 		this.parser.parseURL(ValueConstants.corsProxy() + ValueConstants.backgroundImageRssSource())
 			.then((response) => { return response.items })
 			.then((response) => Utils.randomItemInArray(response, 20))
-			// .then((response) => console.log(response));
 			.then((response) => this.setState({
 				backgroundImageInfo: {
 					author: response.author,
@@ -51,5 +53,8 @@ export default class App extends React.Component {
 
 	updateBackground() {
 		document.body.style.backgroundImage = "url(" + this.state.backgroundImageInfo.imageSrc + ")";
+		this.setState({
+		imageCredits: <a class="app-imagecredits" target="_blank" href={this.state.backgroundImageInfo.link}>{this.state.backgroundImageInfo.title}<br />by {this.state.backgroundImageInfo.author}</a>
+		});
 	}
 }
