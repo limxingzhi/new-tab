@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav, Navbar, Carousel } from 'react-bootstrap';
+import { Navbar } from 'react-bootstrap';
 import Parser from 'rss-parser';
 import Utils from '../Utils';
 import './RssFeed.css';

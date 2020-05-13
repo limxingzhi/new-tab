@@ -196,6 +196,7 @@ export default class Utils {
 	 * @param cutoff end index to slice the array
 	 */
 	static randomItemInArray = (arrayInput, cutoff) => {
+		console.info("array length", arrayInput.length);
 		if (cutoff && arrayInput.length > cutoff+1)
 			arrayInput = arrayInput.slice(0,cutoff);
 

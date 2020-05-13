@@ -3,6 +3,11 @@
 	margin: 5em auto auto;
 }
 
+.app-imagecredits-section {
+	display: flex;
+	flex-direction: column;
+}
+
 .app-imagecredits {
 	display: block;
 	width: 100%;;
@@ -11,13 +16,30 @@
 
 	font-style: italic;
 
-	opacity: 0.2;
+	opacity: 0.4;
 }
 
 .app-imagecredits:hover {
 	color: white;
 
 	opacity: 1;
+}
+
+.app-changebackground-btn {
+	margin: auto;
+	opacity: 0.4;
+}
+
+.app-changebackground-btn:hover {
+	opacity: 1;
+}
+
+.app-changebackground-btn:disabled {
+  opacity: 1;
+}
+
+.app-changebackground-btn:disabled:hover {
+  opacity: 1;
 }
 
 @media (max-width: 600px) {

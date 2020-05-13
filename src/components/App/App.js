@@ -3,6 +3,7 @@ import Timer from '../Timer/Timer';
 import Todo from '../Todo/Todo';
 import Parser from 'rss-parser';
 import ValueConstants from '../ValueConstants';
+import { Button } from 'react-bootstrap';
 import Utils from '../Utils';
 import './App.css';
 
@@ -13,7 +14,15 @@ export default class App extends React.Component {
 		this.parser = new Parser();
 		this.state = Utils.deepCopy(props);
 
-		this.state.imageCredits = '';
+		this.state.imageCredits = <div class="app-imagecredits-section">
+			<a class="app-imagecredits">
+				<br /><br />
+			</a>
+			<Button disabled variant="danger" className="app-changebackground-btn btn btn-sm">Loading Background</Button>
+		</div>;
+
+		this.fetchBackground = this.fetchBackground.bind(this);
+		this.updateBackground = this.updateBackground.bind(this);
 	}
 
 	render() {
@@ -29,14 +38,18 @@ export default class App extends React.Component {
 		this.fetchBackground(this.updateBackground);
 	}
 
-	componentDidUpdate() {
-
-	}
-
 	fetchBackground(callback) {
 		this.parser.parseURL(ValueConstants.corsProxy() + ValueConstants.backgroundImageRssSource())
 			.then((response) => { return response.items })
-			.then((response) => Utils.randomItemInArray(response, 20))
+			.then((response) => {
+				var randomItem;
+				do {
+					randomItem = Utils.randomItemInArray(response);
+				} while (!randomItem.content.match(ValueConstants.redditRssImageCaptureRegex()));
+				console.info(randomItem);
+
+				return randomItem;
+			})
 			.then((response) => this.setState({
 				backgroundImageInfo: {
 					author: response.author,
@@ -44,13 +57,25 @@ export default class App extends React.Component {
 					link: response.link,
 					imageSrc: response.content.match(ValueConstants.redditRssImageCaptureRegex())[1] + '.jpg'
 				}
-			}, callback));
+			}, callback)).catch(exception => {
+				console.log(exception);
+			});
 	}
 
-	updateBackground() {
+	updateBackground(callback) {
 		document.body.style.backgroundImage = "url(" + this.state.backgroundImageInfo.imageSrc + ")";
 		this.setState({
-		imageCredits: <a class="app-imagecredits" target="_blank" href={this.state.backgroundImageInfo.link}>{this.state.backgroundImageInfo.title}<br />by {this.state.backgroundImageInfo.author}</a>
+			backgroundBtn: <Button variant="dark" className="app-changebackground-btn btn-sm" onClick={
+				() => this.fetchBackground(this.updateBackground)
+			}>Change Background</Button>
+		}, () => {
+			this.setState({
+				imageCredits: <div class="app-imagecredits-section">
+					<a class="app-imagecredits" target="_blank" href={this.state.backgroundImageInfo.link}>{this.state.backgroundImageInfo.title}<br />wallpaper by {this.state.backgroundImageInfo.author}</a>
+					<br />
+					{this.state.backgroundBtn}
+				</div>
+			});
 		});
 	}
 }
