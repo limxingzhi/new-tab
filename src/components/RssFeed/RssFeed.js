@@ -58,7 +58,7 @@ export default class RssFeed extends React.Component {
 	}
 
 	async loadData() {
-		const CORS_PROXY = ValueConstants.corsProxy() + 'https://';
+		const CORS_PROXY = ValueConstants.corsProxy();
 		const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
 
 		this.setState({ feed: [] });

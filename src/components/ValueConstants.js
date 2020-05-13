@@ -6,15 +6,15 @@ export default class ValueConstants {
 	}
 
 	static defaultFeedInfo () {
-		return 'https://gist.githubusercontent.com/limxingzhi/04ff839e03592e326d37c8c94bd3c74b/raw/4f680baf59387ccb4468308c649528845dac364f/rss-sources.json';
+		return 'https://gist.githubusercontent.com/limxingzhi/04ff839e03592e326d37c8c94bd3c74b/raw';
 	}
 
 	static backgroundImageRssSource () {
-		return 'https://www.reddit.com/r/EarthPorn+auroraporn+wallpaper+wallpapers.rss?t=day';
+		return 'reddit.com/r/EarthPorn+auroraporn+wallpaper+wallpapers.rss?t=day';
 	}
 
 	static corsProxy () {
-		return 'https://cors-anywhere.herokuapp.com/';
+		return 'https://xingzhi.dev/corsanywhere/';
 	}
 
 	static redditRssImageCaptureRegex() {
