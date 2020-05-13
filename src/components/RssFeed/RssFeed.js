@@ -3,7 +3,7 @@ import { Nav, Navbar, Carousel } from 'react-bootstrap';
 import Parser from 'rss-parser';
 import Utils from '../Utils';
 import './RssFeed.css';
-import StorageConstants from '../StorageConstants';
+import ValueConstants from '../ValueConstants';
 
 export default class RssFeed extends React.Component {
 	constructor(props) {
@@ -11,7 +11,7 @@ export default class RssFeed extends React.Component {
 		this.state = Utils.deepCopy(props);
 		this.parser = new Parser();
 
-		fetch(StorageConstants.defaultFeedInfo())
+		fetch(ValueConstants.defaultFeedInfo())
 			.then((response) => response.json())
 			.then((response) => {
 				Utils.writeLS('feedInfo', response);

@@ -1,4 +1,4 @@
-export default class StorageConstants {
+export default class ValueConstants {
 	static metadata() {
 		return {
 			appVersion: "0.1.0"
