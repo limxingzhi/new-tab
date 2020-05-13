@@ -1,0 +1,12 @@
+.header-wrapper {
+	opacity: 0.5;
+}
+
+.header-branding {
+	color: white !important;
+}
+
+.header-link {
+	color: white !important;
+	text-transform: uppercase;
+}

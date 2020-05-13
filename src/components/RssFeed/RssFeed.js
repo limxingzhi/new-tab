@@ -15,15 +15,17 @@ export default class RssFeed extends React.Component {
 			.then((response) => response.json())
 			.then((response) => {
 				Utils.writeLS('feedInfo', response);
-				this.setState({display: <p class="rssfeed-loading">Loading RSS Feed</p>}, this.loadData);
+				this.setState({ display: <p class="rssfeed-loading">Loading RSS Feed</p> }, this.loadData);
 			});
 	}
 
 	render() {
 		return (
-			<Navbar bg="light">
-				{this.state.display}
-			</Navbar>);
+			<div class="rssfeed-wrapper">
+				<Navbar bg="dark">
+					{this.state.display}
+				</Navbar>
+			</div>);
 	}
 
 	componentDidMount() {
@@ -56,7 +58,7 @@ export default class RssFeed extends React.Component {
 	}
 
 	async loadData() {
-		const CORS_PROXY = "https://cors-anywhere.herokuapp.com/https://";
+		const CORS_PROXY = ValueConstants.corsProxy() + 'https://';
 		const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
 
 		this.setState({ feed: [] });

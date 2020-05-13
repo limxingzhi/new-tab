@@ -4,6 +4,7 @@ import Header from './components/Header/Header';
 import RssFeed from './components/RssFeed/RssFeed';
 import App from './components/App/App';
 import Utils from './components/Utils'
+import './index.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './fonts/RobotoMono-Bold.ttf';
