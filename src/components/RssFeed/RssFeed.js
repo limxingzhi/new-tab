@@ -9,6 +9,7 @@ export default class RssFeed extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = Utils.deepCopy(props);
+		this.parser = new Parser();
 
 		fetch(StorageConstants.defaultFeedInfo())
 			.then((response) => response.json())
@@ -60,11 +61,10 @@ export default class RssFeed extends React.Component {
 
 		this.setState({ feed: [] });
 
-		const parser = new Parser();
 		await Utils.readLS("feedInfo").map((feed) => {
 			const feedItems = [];
 			try {
-				parser.parseURL(CORS_PROXY + feed.url)
+				this.parser.parseURL(CORS_PROXY + feed.url)
 					.then((response) => {
 						response.items.map((item) => {
 							const pubDate = new Date(item.pubDate);
