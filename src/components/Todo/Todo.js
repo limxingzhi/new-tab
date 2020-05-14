@@ -11,12 +11,16 @@ export default class Todo extends React.Component {
 
 		this.state.itemsData = [];
 		this.state.itemComponents = [];
+
+		this.newTaskHandler = this.newTaskHandler.bind(this);
+		this.removeTaskHandler = this.removeTaskHandler.bind(this);
+		this.initializeState = this.initializeState.bind(this);
 	}
 
 	render() {
 		return <div class="container todo-wrapper col-md-12">
 			<div class="col-md-12 todoinput-wrapper">
-				<TodoInput newTaskHandler={this.newTaskHandler.bind(this)} />
+				<TodoInput newTaskHandler={this.newTaskHandler} />
 			</div>
 			{this.state.itemComponents}
 		</div>;
@@ -24,13 +28,17 @@ export default class Todo extends React.Component {
 
 	componentDidMount() {
 		this.initializeState();
+
+		setInterval(() => {
+			this.initializeState();
+		}, 2 * 1000);
 	}
 
 	populateList() {
 
 		const components = this.state.itemsData.map((item) => {
 			return <TodoItem
-				removeTaskHandler={this.removeTaskHandler.bind(this)}
+				removeTaskHandler={this.removeTaskHandler}
 				text={item.text}
 				hashValue=""
 				taskId={item.taskId}
