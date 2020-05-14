@@ -44,9 +44,18 @@ export default class App extends React.Component {
 				var randomItem;
 				do {
 					randomItem = Utils.randomItemInArray(response);
-				} while (!randomItem.content.match(ValueConstants.redditRssImageCaptureRegex()));
-				console.info(randomItem);
+				} while (
+					// Check current background exist
+					this.state.backgroundImageInfo !== undefined
+					&& (
+						// Check random item has image source
+						!randomItem.content.match(ValueConstants.redditRssImageCaptureRegex())[1]
+						// Check random item has the same title as current background image
+						&& this.state.backgroundImageInfo.title === randomItem.content.match(ValueConstants.redditRssImageCaptureRegex())
+					)
+				);
 
+				console.info(randomItem);
 				return randomItem;
 			})
 			.then((response) => this.setState({
