@@ -34,7 +34,6 @@ export default class App extends React.Component {
 	}
 
 	componentDidMount() {
-		document.title = 'NEW TAB';
 		this.fetchBackground(this.updateBackground);
 	}
 
