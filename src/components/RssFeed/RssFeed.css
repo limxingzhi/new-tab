@@ -7,12 +7,16 @@
 	font-weight: normal;
 	text-align: center;
 	overflow: hidden;
-	text-overflow: ellipsis;
 	white-space: nowrap;
 	width: 100%;
 	min-width: 1px;
 	color: white;
-	animation: rssfeed-blinkingText 10s infinite;
+
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+
+	animation: rssfeed-animation-fadeaway 10s;
 }
 
 .rssfeed-text:hover {
@@ -22,15 +26,22 @@
 .rssfeed-loading {
 	width: 100%;
 	text-align: center;
-	animation: rssfeed-blinkingLoad 1s infinite;
+	animation: rssfeed-animation-blinkingLoad 1s infinite;
 	padding: 0 20px;
 	margin: 0 auto;
-
 	color: white;
 }
 
 .rssfeed-title {
-	padding: 0 20px;
+	max-width: fit-content;
+	margin: 0 20px;
+
+	/* For nimations */
+	display: inline-block;
+	overflow: hidden;
+	/* The typwriter cursor */
+	white-space: nowrap;
+	animation: rssfeed-animation-typing 2.5s steps(40, end);
 }
 
 .rssfeed-metadata {
@@ -43,20 +54,13 @@
 	}
 	.rssfeed-title {
 		padding: 0;
-	}
-	.rssfeed-text {
 		overflow: scroll;
-		text-overflow: unset;
+		border-right: 0 solid orange;
+		animation: rssfeed-animation-typing 2s steps(40, end);
 	}
 }
 
-@keyframes rssfeed-blinkingText {
-	0% {
-		opacity: 0;
-	}
-	5% {
-		opacity: 1;
-	}
+@keyframes rssfeed-animation-fadeaway {
 	95% {
 		opacity: 1;
 	}
@@ -65,7 +69,8 @@
 	}
 }
 
-@keyframes rssfeed-blinkingLoad {
+
+@keyframes rssfeed-animation-blinkingLoad {
 	0% {
 		font-weight: light;
 		opacity: 0;
@@ -77,5 +82,14 @@
 	100% {
 		font-weight: light;
 		opacity: 0;
+	}
+}
+
+@keyframes rssfeed-animation-typing {
+	from {
+		width: 0;
+	}
+	to {
+		width: 100%;
 	}
 }

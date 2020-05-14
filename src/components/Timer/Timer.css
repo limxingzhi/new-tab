@@ -6,11 +6,10 @@
 	font-weight: medium;
 }
 
-.countdown-wrapper {
-	font-family: RobotoMono, monospace;
+.timer-wrapper {
+	font-family: '', monospace;
 	font-weight: regular;
 	margin: 2em auto;
 	text-align: center;
-
 	color: white;
 }

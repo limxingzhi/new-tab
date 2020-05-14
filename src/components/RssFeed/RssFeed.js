@@ -20,7 +20,7 @@ export default class RssFeed extends React.Component {
 	}
 
 	render() {
-		return <Navbar className="rssfeed-wrapper " bg="dark">
+		return <Navbar className="rssfeed-wrapper" bg="dark">
 			{this.state.display}
 		</Navbar>
 	}
@@ -34,7 +34,7 @@ export default class RssFeed extends React.Component {
 
 		setInterval(() => {
 			this.loadData();
-		}, 5 * 60 * 1000);
+		}, 30 * 60 * 1000);
 	}
 
 	loadDisplay() {
@@ -43,13 +43,19 @@ export default class RssFeed extends React.Component {
 			return;
 		}
 		const displayItem = Utils.deepCopy(this.state.feed)[0];
+
 		this.setState({
-			display: <a class="rssfeed-text" href={displayItem.link} target="_blank">
-				<span class="rssfeed-metadata">{displayItem.pubDate}</span>
-				<span class="rssfeed-title">{displayItem.title}</span>
-				<span class="rssfeed-metadata">{displayItem.source}</span>
-			</a>
+			display: null
+		}, () => {
+			this.setState({
+				display: <a class="rssfeed-text" href={displayItem.link} target="_blank">
+					<span class="rssfeed-metadata">{displayItem.pubDate}</span>
+					<span class="rssfeed-title rssfeed-typing">{displayItem.title}</span>
+					<span class="rssfeed-metadata">{displayItem.source}</span>
+				</a>
+			});
 		});
+
 		this.setState({ feed: this.state.feed.slice(1) }, this.sortByDate);
 
 	}

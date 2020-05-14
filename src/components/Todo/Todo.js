@@ -27,9 +27,10 @@ export default class Todo extends React.Component {
 	componentDidMount() {
 		this.initializeState();
 
+		// Poll from Local storage
 		setInterval(() => {
 			this.initializeState();
-		}, 2 * 1000);
+		}, 60 * 1000);
 	}
 
 	populateList() {

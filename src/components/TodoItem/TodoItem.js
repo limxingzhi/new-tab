@@ -29,7 +29,7 @@ export default class TodoItem extends React.Component {
 		this.updateTimeRecord();
 		setInterval(() => {
 			this.updateTimeRecord();
-		}, 3000);
+		}, 30 * 1000);
 
 		const hashValue = sha256(this.state.text)
 
