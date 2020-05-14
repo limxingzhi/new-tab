@@ -1,11 +1,17 @@
-.todoinput-wrapper {
-	display: flex;
-	justify-content: center;
-}
-
 .todoinput-form-wrapper {
 	margin: 1em;
-	width: fit-content;
+	width: 100%;
 
-	opacity: 0.75;
+	display: flex;
+	justify-content: center;
+
+	opacity: 0.5;
+}
+
+.todoinput-form-wrapper:hover {
+	opacity: 1;
+}
+
+.todoinput-submit-btn {
+	margin-left: 5px;
 }

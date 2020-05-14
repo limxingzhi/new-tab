@@ -19,9 +19,7 @@ export default class Todo extends React.Component {
 
 	render() {
 		return <div class="container todo-wrapper col-md-12">
-			<div class="col-md-12 todoinput-wrapper">
-				<TodoInput newTaskHandler={this.newTaskHandler} />
-			</div>
+			<TodoInput newTaskHandler={this.newTaskHandler} />
 			{this.state.itemComponents}
 		</div>;
 	}

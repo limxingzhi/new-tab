@@ -2,15 +2,16 @@
 	margin: 10px;
 	width: fit-content;
 
-	opacity: 0.75;
+	opacity: 0.5 !important;
+}
+
+.todoitem-toast-wrapper:hover {
+	opacity: 1 !important;
 }
 
 .todoitem-text {
 	font-size: large;
-}
-
-.todoitem-body-wrapper {
-	opacity: 0.95;
+	font-weight: bolder;
 }
 
 .todoitem-date {

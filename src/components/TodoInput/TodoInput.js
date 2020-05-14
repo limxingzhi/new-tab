@@ -13,7 +13,7 @@ export default class TodoInput extends React.Component {
 
 	render() {
 		// Note: the Todo component will handle the submit event
-		return <div class="todoinput-form-wrapper" onSubmit={this.props.newTaskHandler}><Form>
+		return <Form className="todoinput-form-wrapper" onSubmit={this.props.newTaskHandler}>
 			<Form.Row>
 				<Form.Group>
 					<Form.Control
@@ -23,8 +23,8 @@ export default class TodoInput extends React.Component {
 						id="task-input"
 					/>
 				</Form.Group>
-				<span><Button type="submit" variant="light">👍</Button></span>
+				<span><Button className="todoinput-submit-btn" type="submit" variant="light">👍</Button></span>
 			</Form.Row>
-		</Form></div>;
+		</Form>;
 	}
 }

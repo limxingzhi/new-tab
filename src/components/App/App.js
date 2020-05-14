@@ -79,7 +79,7 @@ export default class App extends React.Component {
 		}, () => {
 			this.setState({
 				imageCredits: <div class="app-imagecredits-section">
-					<a class="app-imagecredits" target="_blank" href={this.state.backgroundImageInfo.link}>{this.state.backgroundImageInfo.title}<br />wallpaper by {this.state.backgroundImageInfo.author}</a>
+					<a class="app-imagecredits" target="_blank" href={this.state.backgroundImageInfo.link}>{this.state.backgroundImageInfo.title}<br />background by {this.state.backgroundImageInfo.author}</a>
 					<br />
 					{this.state.backgroundBtn}
 				</div>

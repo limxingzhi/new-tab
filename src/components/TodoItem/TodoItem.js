@@ -11,21 +11,17 @@ export default class TodoItem extends React.Component {
 	}
 
 	render() {
-		return <div class="todoitem-toast-wrapper" taskId={this.state.taskId}>
-			<Toast onClose={this.closeToast.bind(this)}>
-				<Toast.Header>
-					<p class="mr-auto todoitem-id" >{this.state.hashValue}</p>
-				</Toast.Header>
-				<div class="todoitem-body-wrapper">
-					<Toast.Body>
-						<p class="todoitem-text">{this.state.text}</p>
-						<small>
-							{this.state.emoji}<span class="todoitem-date">{this.state.timeRecord}</span>
-						</small>
-					</Toast.Body>
-				</div>
-			</Toast>
-		</div>;
+		return <Toast className="todoitem-toast-wrapper" taskId={this.state.taskId} onClose={this.closeToast.bind(this)}>
+			<Toast.Header>
+				<p class="mr-auto todoitem-id" >{this.state.hashValue}</p>
+			</Toast.Header>
+			<Toast.Body>
+				<p class="todoitem-text">{this.state.text}</p>
+				<small>
+					{this.state.emoji}<span class="todoitem-date">{this.state.timeRecord}</span>
+				</small>
+			</Toast.Body>
+		</Toast>;
 	}
 
 	componentDidMount() {
