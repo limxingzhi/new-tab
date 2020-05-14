@@ -47,11 +47,10 @@ export default class App extends React.Component {
 				} while (
 					// Check current background exist
 					this.state.backgroundImageInfo !== undefined
-					&& (
-						// Check random item has image source
-						!randomItem.content.match(ValueConstants.redditRssImageCaptureRegex())[1]
-						// Check random item has the same title as current background image
-						&& this.state.backgroundImageInfo.title === randomItem.content.match(ValueConstants.redditRssImageCaptureRegex())
+					// Check random item has image source
+					&& !randomItem.content.match(ValueConstants.redditRssImageCaptureRegex())[1]
+					// Check random item has the same title as current background image
+					&& this.state.backgroundImageInfo.title === randomItem.content.match(ValueConstants.redditRssImageCaptureRegex()
 					)
 				);
 
@@ -63,10 +62,10 @@ export default class App extends React.Component {
 					author: response.author,
 					title: response.title,
 					link: response.link,
-					imageSrc: response.content.match(ValueConstants.redditRssImageCaptureRegex())[1] + '.jpg'
+					imageSrc: response.content.match(ValueConstants.redditRssImageCaptureRegex())[1]
 				}
 			}, callback)).catch(exception => {
-				console.log(exception);
+				console.error(exception);
 			});
 	}
 

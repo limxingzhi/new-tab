@@ -18,6 +18,6 @@ export default class ValueConstants {
 	}
 
 	static redditRssImageCaptureRegex() {
-		return new RegExp('href=\"([^\"]+\).jpg\"');
+		return new RegExp('href=\"([^\"]+\.(jpg|png))\"');
 	}
 }
