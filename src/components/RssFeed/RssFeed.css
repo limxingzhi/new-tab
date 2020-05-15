@@ -16,7 +16,7 @@
 	justify-content: center;
 	flex-direction: row;
 
-	animation: rssfeed-animation-fadeaway 10s;
+	animation: rssfeed-animation-fadeaway 15s;
 }
 
 .rssfeed-text:hover {
