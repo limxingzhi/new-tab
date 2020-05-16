@@ -27,7 +27,7 @@ export default class App extends React.Component {
 
 	render() {
 		return <div class="app-wrapper">
-			<div>{this.state.imageCredits}</div>
+			{this.state.imageCredits}
 			<Timer />
 			<Todo />
 		</div>;
@@ -38,10 +38,10 @@ export default class App extends React.Component {
 	}
 
 	fetchBackground(callback) {
+		var randomItem;
 		this.parser.parseURL(ValueConstants.corsProxy() + ValueConstants.backgroundImageRssSource())
 			.then((response) => { return response.items })
 			.then((response) => {
-				var randomItem;
 				do {
 					randomItem = Utils.randomItemInArray(response);
 				} while (
@@ -66,6 +66,8 @@ export default class App extends React.Component {
 				}
 			}, callback)).catch(exception => {
 				console.error(exception);
+				console.error(randomItem);
+				this.fetchBackground(callback);
 			});
 	}
 

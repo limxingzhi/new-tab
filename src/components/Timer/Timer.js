@@ -18,7 +18,7 @@ export default class Timer extends React.Component {
 	render() {
 		return <div class="container timer-wrapper">
 			<h1 id="timer-time">{this.state.time}</h1>
-			<h5>{this.state.timestamp}</h5>
+			<h5 id="timer-timestamp">{this.state.timestamp}</h5>
 			<h2 id="timer-date">{this.state.date}</h2>
 			<h5 id="timer-prettyday">{this.state.weekdayPretty}</h5>
 		</div>;

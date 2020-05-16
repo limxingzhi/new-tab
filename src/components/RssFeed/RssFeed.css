@@ -11,11 +11,9 @@
 	width: 100%;
 	min-width: 1px;
 	color: white;
-
 	display: flex;
 	justify-content: center;
 	flex-direction: row;
-
 	animation: rssfeed-animation-fadeaway 15s;
 }
 
@@ -35,7 +33,6 @@
 .rssfeed-title {
 	max-width: fit-content;
 	margin: 0 20px;
-
 	/* For nimations */
 	display: inline-block;
 	overflow: hidden;
@@ -58,6 +55,9 @@
 		border-right: 0 solid orange;
 		animation: rssfeed-animation-typing 2s steps(40, end);
 	}
+	.rssfeed-wrapper {
+		opacity: 1;
+	}
 }
 
 @keyframes rssfeed-animation-fadeaway {
@@ -68,7 +68,6 @@
 		opacity: 0;
 	}
 }
-
 
 @keyframes rssfeed-animation-blinkingLoad {
 	0% {

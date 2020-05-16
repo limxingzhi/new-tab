@@ -10,3 +10,9 @@
 	color: white !important;
 	text-transform: uppercase;
 }
+
+@media (max-width: 600px) {
+	.header-wrapper {
+		opacity: 1;
+	}
+}

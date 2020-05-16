@@ -6,6 +6,12 @@
 	font-weight: medium;
 }
 
+@media (max-width: 600px) {
+	#timer-timestamp {
+		display: none;
+	}
+}
+
 .timer-wrapper {
 	font-family: '', monospace;
 	font-weight: regular;

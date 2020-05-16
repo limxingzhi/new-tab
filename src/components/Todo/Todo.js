@@ -83,7 +83,7 @@ export default class Todo extends React.Component {
 
 	inputTextChangeHandler(stringInput) {
 		switch (stringInput.charAt(0)) {
-			case '!':
+			case ';':
 				this.setState({ buttonEmoji: ValueConstants.searchEmoji() });
 				break;
 			case '':
@@ -103,7 +103,7 @@ export default class Todo extends React.Component {
 		const stringInput = document.getElementById("task-input").value;
 
 		switch (stringInput.charAt(0)) {
-			case '!':
+			case ';':
 				this.searchHandler(stringInput.slice(1));
 				break;
 			default:
