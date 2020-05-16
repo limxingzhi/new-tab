@@ -4,14 +4,33 @@
 
 	display: flex;
 	justify-content: center;
-
-	opacity: 0.5;
+	flex-direction: column;
 }
 
-.todoinput-form-wrapper:hover {
+.todoinput-input-control {
+	opacity: 0.75;
+}
+
+.todoinput-input-control:hover, .todoinput-input-control:focus {
 	opacity: 1;
 }
 
 .todoinput-submit-btn {
 	margin-left: 5px;
+	height: fit-content;
+}
+
+.todoinput-form-group {
+	display: flex;
+	flex-direction: row;
+
+	margin: 0 auto;
+}
+
+.todoinput-form-inputmessage {
+	color: white;
+	opacity: 0.75;
+	margin: 0 auto;
+
+	padding-bottom: 0.5em;;
 }

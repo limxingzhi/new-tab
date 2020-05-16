@@ -56,7 +56,7 @@ export default class Utils {
 		var metadata = this.readLS("_metadata");
 		metadata = metadata ? metadata : {};
 		metadata.lastWritten = Date.now().toString();
-		metadata = {...metadata, ...inputObj};
+		metadata = { ...metadata, ...inputObj };
 		window.localStorage.setItem("_metadata", JSON.stringify(metadata));
 	}
 
@@ -78,24 +78,28 @@ export default class Utils {
 	 *
 	 * @param {function} callback - The callback function to invoke
 	 * @param {number} wait - The number of milliseconds to wait before invoking the callback
-	 * @param {namespace} context - The namespace to invoke the callback
+	 * @param {boolean} immediate - Calls the function before or after the wait, defaults to false
 	 */
-	static throttle(callback, wait) {
-		var context = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : this;
-		var timeout = null;
-		var callbackArgs = null;
-
-		var later = function later() {
-			callback.apply(context, callbackArgs);
-			timeout = null;
-		};
+	static throttle(callback, wait, immediate = false) {
+		let timeout = null
+		let initialCall = true
 
 		return function () {
-			if (!timeout) {
-				callbackArgs = arguments;
-				timeout = setTimeout(later, wait);
+			const callNow = immediate && initialCall
+			const next = () => {
+				callback.apply(this, arguments)
+				timeout = null
 			}
-		};
+
+			if (callNow) {
+				initialCall = false
+				next()
+			}
+
+			if (!timeout) {
+				timeout = setTimeout(next, wait)
+			}
+		}
 	}
 
 	/**
@@ -197,8 +201,8 @@ export default class Utils {
 	 */
 	static randomItemInArray = (arrayInput, cutoff) => {
 		console.info("array length", arrayInput.length);
-		if (cutoff && arrayInput.length > cutoff+1)
-			arrayInput = arrayInput.slice(0,cutoff);
+		if (cutoff && arrayInput.length > cutoff + 1)
+			arrayInput = arrayInput.slice(0, cutoff);
 
 		return arrayInput[Math.floor(Math.random() * arrayInput.length)];
 	}

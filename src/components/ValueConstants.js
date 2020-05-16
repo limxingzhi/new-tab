@@ -20,4 +20,16 @@ export default class ValueConstants {
 	static redditRssImageCaptureRegex() {
 		return new RegExp('href=\"([^\"]+\.(jpg|png))\"');
 	}
+
+	static searchURL() {
+		return 'https://google.com/search?q=';
+	}
+
+	static taskEmoji() {
+		return '📝';
+	}
+
+	static searchEmoji() {
+		return '🔍';
+	}
 }
