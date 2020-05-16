@@ -22,7 +22,7 @@ export default class TodoInput extends React.Component {
 	render() {
 		// Note: the Todo component will handle the submit event
 		return <Form className="todoinput-form-wrapper" onSubmit={this.newInputHandler}>
-			<p className="todoinput-form-inputmessage">Task input, !&lt;text&gt; for google search</p>
+			<p className="todoinput-form-inputmessage">Task input, type ; for google search</p>
 			<Form.Row>
 				<Form.Group className="todoinput-form-group">
 					<Form.Control

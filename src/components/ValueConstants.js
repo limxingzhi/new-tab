@@ -10,7 +10,7 @@ export default class ValueConstants {
 	}
 
 	static backgroundImageRssSource () {
-		return 'reddit.com/r/EarthPorn+auroraporn+wallpaper+wallpapers.rss?t=day';
+		return 'reddit.com/r/EarthPorn+wallpaper+wallpapers.rss?t=day';
 	}
 
 	static corsProxy () {

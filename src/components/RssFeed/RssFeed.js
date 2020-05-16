@@ -20,7 +20,7 @@ export default class RssFeed extends React.Component {
 	}
 
 	render() {
-		return <Navbar className="rssfeed-wrapper" bg="dark">
+		return <Navbar className="rssfeed-wrapper" bg="dark" id="rssfeed">
 			{this.state.display}
 		</Navbar>
 	}
